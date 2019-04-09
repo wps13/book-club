@@ -1,0 +1,46 @@
+$dark-gray: #47464c;
+$lighter-gray: #3f4f4f;
+$black: #000707;
+$card-bg: #878e8e;
+
+.card-form-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient($black, $dark-gray);
+  @media screen and (max-width: 768px) {
+    height: 100vh;
+  }
+  .box-form-login {
+    border: 1px solid gray;
+    background: $card-bg;
+    border-radius: 5px;
+    width: 50vw;
+    margin: 5%;
+    @media screen and (max-width: 576px) {
+      width: 80vw;
+      margin: 5px;
+    }
+    @media screen and (min-width: 576px) and (max-width: 770px) {
+      margin: 5px 10px;
+      width: 60vw;
+    }
+
+    #form-login {
+      .div-input-login {
+        max-width: 100%;
+        margin: 5%;
+        padding: 2%;
+
+        .input-login {
+          line-height: 26px;
+          border-radius: 10px;
+          margin: 2%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: "./public/index.html",
   filename: "./index.html",
   inject: "body",
+  favicon: "./public/favicon.ico",
 });
 
 module.exports = {
