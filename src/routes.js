@@ -4,6 +4,7 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import Login from "./containers/Login";
 import SignUp from "./containers/SignUp";
 import Home from "./containers/Home";
+import BookPage from "./containers/BookPage";
 
 const ErrorMessage = () => (
   <div
@@ -26,6 +27,7 @@ const Routes = () => {
         <Route path="/" exact root component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/book" component={BookPage} />
         <Route render={ErrorMessage} />
       </Switch>
     </HashRouter>

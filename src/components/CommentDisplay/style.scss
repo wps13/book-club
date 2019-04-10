@@ -1,0 +1,24 @@
+.div-comment-display {
+  width: 50vw;
+  display: flex;
+  margin: 2%;
+  @media screen and (max-width: 576px) {
+    width: 80vw !important;
+  }
+  .img-comment-display {
+    height: 90px;
+    width: 100px;
+    border-radius: 200px;
+    margin: 2%;
+    @media screen and (max-width: 576px) {
+      height: 50px;
+      width: 60px;
+      border-radius: 50px;
+    }
+  }
+  .info-comment-display {
+    text-align: justify;
+    width: 100%;
+    margin: 0 3%;
+  }
+}
