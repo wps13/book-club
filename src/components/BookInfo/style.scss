@@ -1,0 +1,18 @@
+.book-info {
+  display: flex;
+  width: 60vw;
+  margin: 2%;
+  .book-info-img {
+    height: 120px;
+    width: 200px;
+  }
+  .book-info-text {
+    margin: 0 2%;
+    .book-info-title {
+      font-weight: bold;
+    }
+    .book-info-description {
+      text-align: justify;
+    }
+  }
+}
