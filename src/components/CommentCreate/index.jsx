@@ -12,25 +12,26 @@ const CommentCreate = ({ changeState }) => {
         type="text"
         id="message-textarea"
       />
-      <p>Select an option:</p>
-      <select
-        onChange={e => changeState("status", e.target.value)}
-        id="select-comment-create"
-      >
-        <option value="Read It" className="option-comment-create">
-          Read It
-        </option>
-        <option value="Want to read it" className="option-comment-create">
-          Want to read it
-        </option>
-        <option
-          value="Do not want to read it"
-          className="option-comment-create"
+      <div className="div-rate-comment-create">
+        <p>Rate It:</p>
+        <select
+          onChange={e => changeState("status", e.target.value)}
+          id="select-comment-create"
         >
-          Do not want to read it
-        </option>
-      </select>
-      <p>Serei um botão</p>
+          <option value="Read It" className="option-comment-create">
+            Read It
+          </option>
+          <option value="Want to read it" className="option-comment-create">
+            Want to read it
+          </option>
+          <option
+            value="Do not want to read it"
+            className="option-comment-create"
+          >
+            Do not want to read it
+          </option>
+        </select>
+      </div>
       <button
         type="button"
         id="btn-comment-create"

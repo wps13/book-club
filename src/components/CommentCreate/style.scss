@@ -11,15 +11,20 @@ $bg: #1e3e44;
     width: 100%;
     border-radius: 5px;
   }
-  #select-comment-create {
-    height: 25px;
-    border-radius: 5px;
-    background: #fff;
-    font-size: 16px;
-    .option-comment-create {
+  .div-rate-comment-create {
+    display: flex;
+    #select-comment-create {
+      margin: 2%;
+      height: 25px;
+      border-radius: 5px;
+      background: #fff;
       font-size: 16px;
+      .option-comment-create {
+        font-size: 16px;
+      }
     }
   }
+
   #btn-comment-create {
     background: $bg;
     line-height: 20px;
