@@ -12,7 +12,8 @@
     "prettier/prettier": "error",
     "max-len": ["error", 80],
     "react/prop-types": 0,
-    "no-undef": "warn"
+    "no-undef": "warn",
+    "max-lines": "warn"
   },
   "env": {
     "browser": true

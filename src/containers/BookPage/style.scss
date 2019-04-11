@@ -1,5 +1,20 @@
-#book-page-content {
-  #btn-form-comment {
-    border-radius: 5px;
+.book-page-content {
+  #div-button-comment {
+    display: flex;
+    justify-content: start;
+    margin-left: 2%;
+    #btn-form-comment {
+      border-radius: 5px;
+      padding: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .book-info-status {
+    display: flex;
   }
 }

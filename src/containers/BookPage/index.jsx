@@ -6,6 +6,7 @@ import CommentCreate from "../../components/CommentCreate";
 
 import "./style.scss";
 import BookInfo from "../../components/BookInfo";
+import StatusInfo from "../../components/StatusInfo";
 
 const imgUser = "../../public/images/black-bg.png";
 
@@ -47,22 +48,28 @@ export default class BookPage extends Component {
   render() {
     const { showFormComment } = this.state;
     return (
-      <div id="book-page-content">
-        <BookInfo
-          title={bookData.title}
-          description={bookData.description}
-          image={bookData.img}
-        />
+      <div className="book-page-content">
+        <div className="book-info-status">
+          <BookInfo
+            title={bookData.title}
+            description={bookData.description}
+            image={bookData.img}
+          />
+          <StatusInfo usersReadIt={5} usersWant={2} usersDontWant={0} />
+        </div>
+
         {showFormComment ? (
           <CommentCreate changeState={this.handleState} />
         ) : (
-          <button
-            type="button"
-            id="btn-form-comment"
-            onClick={() => this.handleState("showFormComment", true)}
-          >
-            Comment about this Book
-          </button>
+          <div id="div-button-comment">
+            <button
+              type="button"
+              id="btn-form-comment"
+              onClick={() => this.handleState("showFormComment", true)}
+            >
+              Comment about this Book
+            </button>
+          </div>
         )}
 
         {userComments.map(comment => (
