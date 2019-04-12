@@ -1,5 +1,9 @@
 .status-info {
   margin: 2%;
+  @media screen and (max-width: 576px) {
+    height: 100px;
+    margin: 0px 0px 20px 15px;
+  }
   .status-info-detail {
     text-align: justify;
   }

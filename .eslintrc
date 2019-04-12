@@ -10,10 +10,10 @@
       }
     ],
     "prettier/prettier": "error",
-    "max-len": ["error", 80],
     "react/prop-types": 0,
     "no-undef": "warn",
-    "max-lines": "warn"
+    "max-lines": "warn",
+    "max-len": "off"
   },
   "env": {
     "browser": true

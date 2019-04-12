@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import CommentDisplay from "../../components/CommentDisplay";
 import CommentCreate from "../../components/CommentCreate";
@@ -7,6 +7,7 @@ import CommentCreate from "../../components/CommentCreate";
 import "./style.scss";
 import BookInfo from "../../components/BookInfo";
 import StatusInfo from "../../components/StatusInfo";
+import Header from "../../components/Header";
 
 const imgUser = "../../public/images/black-bg.png";
 
@@ -48,40 +49,43 @@ export default class BookPage extends Component {
   render() {
     const { showFormComment } = this.state;
     return (
-      <div className="book-page-content">
-        <div className="book-info-status">
-          <BookInfo
-            title={bookData.title}
-            description={bookData.description}
-            image={bookData.img}
-          />
-          <StatusInfo usersReadIt={5} usersWant={2} usersDontWant={0} />
-        </div>
-
-        {showFormComment ? (
-          <CommentCreate changeState={this.handleState} />
-        ) : (
-          <div id="div-button-comment">
-            <button
-              type="button"
-              id="btn-form-comment"
-              onClick={() => this.handleState("showFormComment", true)}
-            >
-              Comment about this Book
-            </button>
+      <Fragment>
+        <Header />
+        <div className="book-page-content">
+          <div className="book-info-status">
+            <BookInfo
+              title={bookData.title}
+              description={bookData.description}
+              image={bookData.img}
+            />
+            <StatusInfo usersReadIt={5} usersWant={2} usersDontWant={0} />
           </div>
-        )}
 
-        {userComments.map(comment => (
-          <CommentDisplay
-            key={comment.username}
-            username={comment.username}
-            commentText={comment.message}
-            imageLink={comment.userImage}
-            status={comment.bookStatus}
-          />
-        ))}
-      </div>
+          {showFormComment ? (
+            <CommentCreate changeState={this.handleState} />
+          ) : (
+            <div id="div-button-comment">
+              <button
+                type="button"
+                id="btn-form-comment"
+                onClick={() => this.handleState("showFormComment", true)}
+              >
+                Comment about this Book
+              </button>
+            </div>
+          )}
+
+          {userComments.map(comment => (
+            <CommentDisplay
+              key={comment.username}
+              username={comment.username}
+              commentText={comment.message}
+              imageLink={comment.userImage}
+              status={comment.bookStatus}
+            />
+          ))}
+        </div>
+      </Fragment>
     );
   }
 }

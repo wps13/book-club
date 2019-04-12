@@ -1,13 +1,25 @@
 .book-info {
   display: flex;
+  flex-direction: column;
   width: 60vw;
   margin: 2%;
+  @media screen and (max-width: 576px) {
+    width: 90vw;
+    margin: 10px;
+  }
   .book-info-img {
     height: 120px;
     width: 180px;
+    @media screen {
+      heigth: 80px;
+      width: 100px;
+    }
   }
   .book-info-text {
     margin: 0 2%;
+    @media screen and (max-width: 576px) {
+      width: 90vw;
+    }
     .book-info-title {
       font-weight: bold;
     }
