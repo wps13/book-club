@@ -1,0 +1,39 @@
+.home {
+  background-color: #6e3999;
+  color: #fff;
+  height: 100vh;
+  margin: 0;
+  #title-home {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+    padding: 2%;
+  }
+
+  .container-info-home {
+    display: flex;
+    justify-content: space-evenly;
+    .block-info-home {
+      .info-home {
+        font-size: 24px;
+      }
+      a {
+        color: #fff;
+        outline: none;
+        &:-webkit-any-link {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .recent-book-home {
+    .desc-recent-home {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .book-img-home {
+      height: 100px;
+      width: 150;
+    }
+  }
+}
