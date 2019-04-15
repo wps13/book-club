@@ -1,13 +1,20 @@
 /* eslint-disable max-len */
 import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+
+import {
+  bookDetailRequest,
+  onChangeData,
+  searchBookRequest,
+} from "../../store/actions";
 
 import CommentDisplay from "../../components/CommentDisplay";
 import CommentCreate from "../../components/CommentCreate";
-
-import "./style.scss";
 import BookInfo from "../../components/BookInfo";
 import StatusInfo from "../../components/StatusInfo";
 import Header from "../../components/Header";
+
+import "./style.scss";
 
 const imgUser = "../../public/images/black-bg.png";
 
@@ -35,7 +42,7 @@ const bookData = {
   img: imgUser,
 };
 
-export default class BookPage extends Component {
+class BookPage extends Component {
   constructor(props) {
     super(props);
 
@@ -44,13 +51,24 @@ export default class BookPage extends Component {
     };
   }
 
+  componentDidMount() {
+    const { bookDetails } = this.props;
+    bookDetails();
+  }
+
   handleState = (field, value) => this.setState({ [field]: value });
+
+  search = () => {
+    const { searchBook, bookToSearch } = this.props;
+    searchBook({ bookToSearch });
+  };
 
   render() {
     const { showFormComment } = this.state;
+    const { onChange } = this.props;
     return (
       <Fragment>
-        <Header />
+        <Header onChangeText={onChange} onRequest={this.search} />
         <div className="book-page-content">
           <div className="book-info-status">
             <BookInfo
@@ -62,7 +80,7 @@ export default class BookPage extends Component {
           </div>
 
           {showFormComment ? (
-            <CommentCreate changeState={this.handleState} />
+            <CommentCreate changeState={onChange} />
           ) : (
             <div id="div-button-comment">
               <button
@@ -89,3 +107,15 @@ export default class BookPage extends Component {
     );
   }
 }
+const mapStateToProps = state => state;
+
+const mapDispatchToProps = dispatch => ({
+  onChange: data => dispatch(onChangeData(data)),
+  searchBook: data => dispatch(searchBookRequest(data)),
+  bookDetails: data => dispatch(bookDetailRequest(data)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(BookPage);
