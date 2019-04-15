@@ -1,14 +1,8 @@
-# Boilerplate
+# Book Club
 
-This boilerplate contains webpack, integrated with the devServer, with configuration files for development and production modes.
+This aplication is a simple book club, where users can create a account, comment about the books and see the registered books.
 
-### It's configured to use:
-
-- Jest
-- Sass
-- Eslint
-- Prettier
-- EditorConfig
+Check the Wiki for more info.
 
 ### **How to use**
 
@@ -18,10 +12,6 @@ Start the aplication
 
 `yarn start`
 
-Initialize jest
+Initialize jest, for tests.
 
 `yarn test`
-
-Generate the build
-
-`yarn build`
