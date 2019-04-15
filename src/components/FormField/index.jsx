@@ -13,7 +13,7 @@ const FormField = ({
       <span>{fieldTitle}</span>
       <input
         className={fieldClassname}
-        onChange={e => onChangeField(fieldName, e.target.value)}
+        onChange={e => onChangeField({ [fieldName]: e.target.value })}
         type={fieldType}
       />
     </div>
