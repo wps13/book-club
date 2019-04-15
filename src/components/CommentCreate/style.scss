@@ -22,6 +22,9 @@ $bg: #6e3999;
       .option-comment-create {
         font-size: 16px;
       }
+      @media screen and (max-width: 576px) {
+        margin-top: 10px;
+      }
     }
   }
 
