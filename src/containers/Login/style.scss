@@ -1,7 +1,9 @@
 $dark-gray: #47464c;
 $lighter-gray: #3f4f4f;
 $black: #000707;
-$card-bg: #878e8e;
+$card-bg: #fff;
+$bg: #6e3999;
+$bg-2: #f2d2ce;
 
 .card-form-login {
   display: flex;
@@ -9,12 +11,12 @@ $card-bg: #878e8e;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: linear-gradient($black, $dark-gray);
+  background-image: linear-gradient($bg, $bg-2);
   @media screen and (max-width: 768px) {
     height: 100vh;
   }
   .box-form-login {
-    border: 1px solid gray;
+    border: 0.5px solid gray;
     background: $card-bg;
     border-radius: 5px;
     width: 50vw;
