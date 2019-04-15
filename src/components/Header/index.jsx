@@ -5,12 +5,16 @@ import { Link } from "react-router-dom";
 import { MagnifyingGlass } from "../../utils/icons";
 import "./style.scss";
 
-const Header = () => {
+const Header = ({ onChangeText, onRequest }) => {
   return (
     <div className="container-header">
       <div className="search-block-header">
-        <input id="search-header" placeholder="Search a book" />
-        <button type="button" id="btn-search">
+        <input
+          id="search-header"
+          placeholder="Search a book"
+          onChange={e => onChangeText({ bookToSearch: e.target.value })}
+        />
+        <button type="button" id="btn-search" onClick={onRequest}>
           <MagnifyingGlass />
         </button>
       </div>
