@@ -8,6 +8,10 @@ Check the Wiki for more info.
 
 Clone the repository.
 
+Install the packages
+
+`yarn`
+
 Start the aplication
 
 `yarn start`
