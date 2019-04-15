@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import FormField from "../../components/FormField";
 import ButtonForm from "../../components/ButtonForm";
+
+import { onChangeData, signupRequest } from "../../store/actions";
 
 import "./style.scss";
 
@@ -14,18 +17,30 @@ class SignUp extends Component {
     this.state = {};
   }
 
-  handleOnChange = (field, name) => this.setState({ [field]: name });
+  signupUser = e => {
+    e.preventDefault();
+    const {
+      signup,
+      username,
+      email,
+      fullName,
+      password,
+      confirmPassword,
+    } = this.props;
+    signup({ username, email, fullName, password, confirmPassword });
+  };
 
   render() {
+    const { onChange } = this.props;
     return (
       <div className="card-form-signup">
         <div className="box-form-signup">
           <h2>Register your account.</h2>
-          <form id="form-signup">
+          <form id="form-signup" onSubmit={this.signupUser}>
             <FormField
               fieldTitle="Full Name"
               fieldClassname="input-signup"
-              onChangeField={this.handleOnChange}
+              onChangeField={onChange}
               fieldName="fullName"
               fieldType="text"
               divClass="div-input-signup"
@@ -33,7 +48,7 @@ class SignUp extends Component {
             <FormField
               fieldTitle="Username"
               fieldClassname="input-signup"
-              onChangeField={this.handleOnChange}
+              onChangeField={onChange}
               fieldName="username"
               fieldType="text"
               divClass="div-input-signup"
@@ -41,7 +56,7 @@ class SignUp extends Component {
             <FormField
               fieldName="email"
               fieldClassname="input-signup"
-              onChangeField={this.handleOnChange}
+              onChangeField={onChange}
               fieldType="email"
               fieldTitle="Email"
               divClass="div-input-signup"
@@ -49,7 +64,7 @@ class SignUp extends Component {
             <FormField
               fieldTitle="Password"
               fieldClassname="input-signup"
-              onChangeField={this.handleOnChange}
+              onChangeField={onChange}
               fieldType="password"
               fieldName="username"
               divClass="div-input-signup"
@@ -60,7 +75,7 @@ class SignUp extends Component {
               fieldClassname="input-signup"
               divClass="div-input-signup"
               fieldType="password"
-              onChangeField={this.handleOnChange}
+              onChangeField={onChange}
             />
             <ButtonForm text="Join" />
             <Link to="/login">
@@ -73,4 +88,14 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+const mapStateToProps = state => state;
+
+const mapDispatchToProps = dispatch => ({
+  onChange: data => dispatch(onChangeData(data)),
+  signup: data => dispatch(signupRequest(data)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SignUp);
