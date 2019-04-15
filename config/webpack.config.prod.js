@@ -3,23 +3,32 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "production",
-  entry: "./src/index.js",
+  entry: "./src/index.jsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
+  mode: "production",
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclue: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env", "@babel/preset-react"],
+              plugins: [
+                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-transform-runtime",
+              ],
+            },
           },
-        },
+          {
+            loader: "eslint-loader",
+          },
+        ],
       },
       {
         test: /\.html$/,
